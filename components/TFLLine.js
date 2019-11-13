@@ -15,7 +15,7 @@ const ListItem = styled.li`
   line-height: 1;
 
   p {
-    margin-top: 1.5em;
+    margin-top: 0.75em;
     max-width: 50em;
     line-height: 1.5;
   }

@@ -54,6 +54,7 @@ const ClockListItem = styled.li`
       ? "var(--warning)"
       : "var(--foreground)"};
   display: flex;
+  flex-flow: row wrap;
   margin-left: -1em;
   padding: 0.5em;
   padding-left: 1em;
@@ -63,8 +64,8 @@ const ClockListItem = styled.li`
   width: 100%;
   z-index: 1;
 
-  p + p {
-    margin-left: 0.75em;
+  time {
+    margin-right: 0.75em;
   }
 
   ::after {
@@ -117,13 +118,13 @@ function Clock(props) {
 
   return (
     <ClockListItem congestion={congestion.congestion} progress={elapsed * 100}>
-      <p>
+      <time>
         <strong>
           {String(hours).padStart(2, "0")}
           <SecondsSep>:</SecondsSep>
           {String(minutes).padStart(2, "0")}
         </strong>
-      </p>
+      </time>
       <p>{congestion.message}</p>
     </ClockListItem>
   )

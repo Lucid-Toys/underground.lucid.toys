@@ -11,7 +11,7 @@ const ListItem = styled.li`
   padding: 0.75em 5%;
   display: flex;
   flex-flow: row wrap;
-  flex: 1;
+  flex: 1 1 auto;
   line-height: 1;
 
   p {

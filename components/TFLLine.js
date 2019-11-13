@@ -23,7 +23,7 @@ const ListItem = styled.li`
 
 const LineName = styled.h2`
   font-weight: 400;
-  font-size: ${props => (props.severity < 10 ? 1 : 1.25)}rem;
+  font-size: ${props => (props.severity < 10 ? 1.25 : 1)}rem;
 `
 
 export default function TFLLine({ status, lineID, lineName }) {

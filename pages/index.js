@@ -70,7 +70,19 @@ Index.getInitialProps = async function() {
   const data = await result.json()
 
   return {
-    lineStatuses: data,
+    lineStatuses: data
+      .sort((a, b) => {
+        return a.name.localeCompare(b.name)
+      })
+      .sort((a, b) => {
+        switch (a.lineStatuses[0].statusSeverityDescription) {
+          case "Good Service":
+            return 1
+          case "Severe Delays":
+          default:
+            return -1
+        }
+      }),
   }
 }
 

@@ -7,6 +7,7 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow: auto;
   justify-content: stretch;
   z-index: 2;
 `

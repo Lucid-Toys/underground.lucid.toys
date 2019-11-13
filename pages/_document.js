@@ -38,7 +38,6 @@ const GlobalStyles = () => (
 
       html {
         font: 100%/1.25 var(--fontStack);
-        min-height: 100%;
         color: var(--foreground);
         background-color: var(--background);
       }

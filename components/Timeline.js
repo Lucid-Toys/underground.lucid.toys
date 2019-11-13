@@ -20,6 +20,16 @@ const List = styled.ul`
 const ListItem = styled.li`
   display: flex;
   flex: 1 1 1;
+
+  ::before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    width: 0.5em;
+    top: 50%;
+    border-top: 1px solid;
+    opacity: 0.5;
+  }
 `
 
 const secondsPulse = keyframes`
@@ -44,9 +54,9 @@ const ClockListItem = styled.li`
       ? "var(--warning)"
       : "var(--foreground)"};
   display: flex;
-  margin-left: -1.25em;
+  margin-left: -1em;
   padding: 0.5em;
-  padding-left: 1.25em;
+  padding-left: 1em;
   position: absolute;
   top: ${props => props.progress}%;
   transition: 0.3s ease;
@@ -58,13 +68,15 @@ const ClockListItem = styled.li`
   }
 
   ::after {
-    content: "•";
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
-    font-size: 1.25rem;
-    margin-top: -0.725em;
-    margin-right: -0.25em;
+    width: 8px;
+    height: 8px;
+    background-color: currentColor;
+    border-radius: 100%;
+    margin-top: -4px;
   }
 `
 

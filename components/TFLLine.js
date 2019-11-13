@@ -23,7 +23,7 @@ const ListItem = styled.li`
 
 const LineName = styled.h2`
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: ${props => (props.severity < 10 ? 1 : 1.25)}rem;
 `
 
 export default function TFLLine({ status, lineID, lineName }) {
@@ -31,7 +31,7 @@ export default function TFLLine({ status, lineID, lineName }) {
 
   return (
     <ListItem lineColor={lineColors[lineID]} severity={severity}>
-      <LineName>
+      <LineName severity={severity}>
         {lineName}
         <Status severity={status[0].statusSeverity}>
           {status[0].statusSeverityDescription}

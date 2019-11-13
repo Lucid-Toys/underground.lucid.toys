@@ -2,23 +2,24 @@ import { keyframes } from "@emotion/core"
 import styled from "@emotion/styled"
 
 const List = styled.ul`
+  background-image: url("/images/congestion-chart.svg");
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   display: flex;
   flex-direction: column;
   flex: 0 1 15rem;
   font-variant-numeric: tabular-nums;
-  justify-content: stretch;
+  height: 100vh;
+  justify-content: space-between;
   list-style-type: none;
+  overflow: hidden;
   padding: 1rem;
-  background-image: url("/images/congestion-chart.svg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: right 10px center;
 `
 
 const ListItem = styled.li`
-  align-items: center;
   display: flex;
-  flex: 1;
+  flex: 1 1 1;
 `
 
 const secondsPulse = keyframes`
@@ -43,15 +44,13 @@ const ClockListItem = styled.li`
       ? "var(--warning)"
       : "var(--foreground)"};
   display: flex;
-  margin: -0.5em;
   margin-left: -1.25em;
-  width: 100%;
   padding: 0.5em;
   padding-left: 1.25em;
   position: absolute;
   top: ${props => props.progress}%;
-  transform: translateY(0.5em);
   transition: 0.3s ease;
+  width: 100%;
   z-index: 1;
 
   p + p {
@@ -74,7 +73,7 @@ const SecondsSep = styled.span`
 `
 
 const getCongestion = hours => {
-  if ((hours >= 8 && hours <= 9) || (hours >= 17 && hours <= 19)) {
+  if ((hours >= 8 && hours < 9) || (hours >= 17 && hours <= 18)) {
     return {
       congestion: 2,
       message: "Usually very busy",

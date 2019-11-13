@@ -7,7 +7,7 @@ const ListItem = styled.li`
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
   border-top: 0.25em solid ${props => props.lineColor};
   color: var(--light);
-  padding: 1em 5%;
+  padding: 0.75em 5%;
   display: flex;
   flex-direction: column;
   justify-content: ${props => (props.severity < 10 ? "start" : "center")};

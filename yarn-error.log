@@ -1,0 +1,36 @@
+Arguments: 
+  /usr/local/bin/node /Users/dte/.yarn/bin/yarn.js init
+
+PATH: 
+  /Users/dte/.yarn/bin:/Users/dte/.config/yarn/global/node_modules/.bin:/Users/dte/torch-cl/install/bin:/Users/dte/torch/install/bin:/usr/local/bin:/Users/dte/.yarn/bin:/Users/dte/.rvm/gems/ruby-2.6.3/bin:/Users/dte/.rvm/gems/ruby-2.6.3@global/bin:/Users/dte/.rvm/rubies/ruby-2.6.3/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/local/sbin:/opt/facebook/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/facebook/bin/biggrep:/opt/facebook/nuclide/latest/nuclide/pkg/fb-on-demand-cli/bin:/opt/facebook/ops/scripts/chef:/opt/homebrew/bin:/usr/local/munki:/opt/facebook/hg/bin:/opt/X11/bin:/Users/dte/.rvm/bin:/Users/dte/.yadr/bin:/Users/dte/.yadr/bin/yadr
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  11.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/Users/dte/.yarn/lib/cli.js:125850:13)
+      at Interface.emit (events.js:197:13)
+      at Interface._ttyWrite (readline.js:820:16)
+      at ReadStream.onkeypress (readline.js:184:10)
+      at ReadStream.emit (events.js:197:13)
+      at emitKeys (internal/readline.js:424:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1093:36)
+      at ReadStream.emit (events.js:197:13)
+      at addChunk (_stream_readable.js:288:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

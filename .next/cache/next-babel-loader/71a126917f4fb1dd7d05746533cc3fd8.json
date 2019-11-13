@@ -1,0 +1,1 @@
+{"ast":null,"code":"\"use strict\";\n\nrequire(\"__next_polyfill__fetch\");","map":{"version":3,"sources":["/Users/dte/Repos/underground.lucid.toys/node_modules/next/dist/client/polyfills.js"],"names":["require"],"mappings":"AAAA;;AAAaA,OAAO,CAAC,wBAAD,CAAP","sourcesContent":["\"use strict\";require(\"__next_polyfill__fetch\");"]},"metadata":{},"sourceType":"script"}

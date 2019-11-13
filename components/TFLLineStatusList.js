@@ -12,15 +12,19 @@ const List = styled.ul`
 `
 
 const TFLLineStatusList = ({ lineStatuses }) => {
-  const lines = lineStatuses.sort((a, b) => {
-    switch (a.lineStatuses[0].statusSeverityDescription) {
-      case "Good Service":
-        return 1
-      case "Severe Delays":
-      default:
-        return -1
-    }
-  })
+  const lines = lineStatuses
+    .sort((a, b) => {
+      return a.name.localeCompare(b.name)
+    })
+    .sort((a, b) => {
+      switch (a.lineStatuses[0].statusSeverityDescription) {
+        case "Good Service":
+          return 1
+        case "Severe Delays":
+        default:
+          return -1
+      }
+    })
 
   return (
     <List>

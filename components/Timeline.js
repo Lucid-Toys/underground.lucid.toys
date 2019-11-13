@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 const List = styled.ul`
   display: flex;
   flex-direction: column;
-  flex: 0 0 10rem;
+  flex: 0 0 12rem;
   font-size: 0.75em;
   font-variant-numeric: tabular-nums;
   justify-content: stretch;
@@ -31,7 +31,7 @@ const ClockListItem = styled.li`
   padding-left: 1.25em;
   position: absolute;
   top: ${props => props.progress}%;
-  transform: translateY(50%);
+  transform: translateY(calc(50% - 0.5em));
   transition: 0.3s ease;
   z-index: 1;
 

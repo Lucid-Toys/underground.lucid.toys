@@ -13,6 +13,7 @@ const GlobalStyles = () => (
         --focus: #f3bf4e;
         --danger: rgb(227, 61, 38);
         --safety: #579d1f;
+        --warning: #e4b500;
 
         --foreground: var(--light);
         --background: var(--dark);

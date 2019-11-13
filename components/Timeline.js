@@ -58,14 +58,18 @@ function Clock(props) {
   const hours = timer.getHours()
   let isBusy = false
 
-  if ((hours >= 8 && hours < 11) || (hours >= 4 && hours < 7)) {
+  if ((hours >= 8 && hours < 10) || (hours >= 4 && hours < 7)) {
     isBusy = true
   }
 
   return (
     <ClockListItem busy={isBusy} progress={elapsed * 100}>
-      <p>{timer.toLocaleTimeString(undefined, { timeStyle: "short" })}</p>
-      <p>{isBusy ? "Usually very busy" : "Usually not very busy"}</p>
+      <p>
+        <strong>
+          {timer.toLocaleTimeString(undefined, { timeStyle: "short" })}
+        </strong>
+      </p>
+      <p>{isBusy ? "Usually very busy" : "Usually not busy"}</p>
     </ClockListItem>
   )
 }

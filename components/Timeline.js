@@ -1,14 +1,18 @@
+import { keyframes } from "@emotion/core"
 import styled from "@emotion/styled"
 
 const List = styled.ul`
   display: flex;
   flex-direction: column;
-  flex: 0 0 12rem;
-  font-size: 0.75em;
+  flex: 0 1 15rem;
   font-variant-numeric: tabular-nums;
   justify-content: stretch;
   list-style-type: none;
   padding: 1rem;
+  background-image: url("/images/congestion-chart.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
 `
 
 const ListItem = styled.li`
@@ -17,21 +21,31 @@ const ListItem = styled.li`
   flex: 1;
 `
 
+const secondsPulse = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
+
 const ClockListItem = styled.li`
   align-items: flex-start;
-  background-color: var(--background);
+  background-color: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(15px);
   border-top: 1px solid;
-  box-shadow: 0.25em 2px 4px var(--background);
   color: ${props => (props.busy ? "var(--danger)" : "var(--foreground)")};
   display: flex;
   margin: -0.5em;
   margin-left: -1.25em;
-  width: 90%;
+  width: 100%;
   padding: 0.5em;
   padding-left: 1.25em;
   position: absolute;
   top: ${props => props.progress}%;
-  transform: translateY(calc(50% - 0.5em));
+  transform: translateY(0.5em);
   transition: 0.3s ease;
   z-index: 1;
 
@@ -50,6 +64,10 @@ const ClockListItem = styled.li`
   }
 `
 
+const SecondsSep = styled.span`
+  animation: ${secondsPulse} 0.5s ease infinite alternate;
+`
+
 function Clock(props) {
   const timer = useNewTimer(new Date())
   const interval = 1000 * 60 * 60 * 24
@@ -66,7 +84,9 @@ function Clock(props) {
     <ClockListItem busy={isBusy} progress={elapsed * 100}>
       <p>
         <strong>
-          {timer.toLocaleTimeString(undefined, { timeStyle: "short" })}
+          {String(timer.getHours()).padStart(2, "0")}
+          <SecondsSep>:</SecondsSep>
+          {String(timer.getMinutes()).padStart(2, "0")}
         </strong>
       </p>
       <p>{isBusy ? "Usually very busy" : "Usually not busy"}</p>
@@ -102,7 +122,10 @@ export default function Timeline() {
     <List>
       <Clock />
       {timestamps.map(timestamp => (
-        <ListItem>{timestamp}:00</ListItem>
+        <ListItem key={timestamp}>
+          {timestamp}
+          :00
+        </ListItem>
       ))}
     </List>
   )

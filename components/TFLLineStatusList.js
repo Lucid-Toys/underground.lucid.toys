@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import TFLLine from "./TFLLine"
 
 const List = styled.ul`
-  flex: 1 1 100%;
+  flex: 1 1 auto;
   padding: 0;
   display: flex;
   flex-direction: column;

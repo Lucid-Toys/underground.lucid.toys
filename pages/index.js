@@ -14,6 +14,7 @@ const GlobalStyles = () => (
         --interactive-alpha: rgb(0, 150, 255, 0.25);
         --focus: #f3bf4e;
         --danger: rgb(227, 61, 38);
+        --safety: #579d1f;
 
         --foreground: var(--light);
         --background: var(--dark);
@@ -37,7 +38,7 @@ const GlobalStyles = () => (
       }
 
       html {
-        font: 115%/1.25 var(--fontStack);
+        font: 100%/1.25 var(--fontStack);
         min-height: 100%;
         color: var(--foreground);
         background-color: var(--background);

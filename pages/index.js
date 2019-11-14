@@ -5,7 +5,7 @@ import Timeline from "../components/Timeline"
 
 const Index = () => {
   const { data, error } = useSWR(
-    "https://api.tfl.gov.uk/line/mode/tube/status",
+    "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status",
     url => fetch(url).then(_ => _.json()),
     { refreshInterval: 3000 },
     true

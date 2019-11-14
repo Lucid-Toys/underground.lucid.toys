@@ -32,21 +32,19 @@ const LineName = styled.h2`
 `
 
 export default function TFLLine({ status, lineID, lineName }) {
-  const severity = status[0].statusSeverity
+  const { statusSeverity, statusSeverityDescription, reason } = status[0]
 
   return (
-    <ListItem lineColor={lineColors[lineID]} severity={severity}>
+    <ListItem lineColor={lineColors[lineID]} severity={statusSeverity}>
       <Box>
-        <LineName severity={severity}>
+        <LineName severity={statusSeverity}>
           {lineName}
-          <Status severity={status[0].statusSeverity}>
-            {status[0].statusSeverityDescription}
-          </Status>
+          <Status severity={statusSeverity}>{statusSeverityDescription}</Status>
         </LineName>
       </Box>
-      {severity < 10 ? (
+      {statusSeverity < 10 ? (
         <Box>
-          <p>{status[0].reason}</p>
+          <p>{reason}</p>
         </Box>
       ) : null}
     </ListItem>

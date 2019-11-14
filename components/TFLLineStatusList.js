@@ -1,16 +1,16 @@
-import styled from "@emotion/styled"
-import TFLLine from "./TFLLine"
+import styled from "@emotion/styled";
+import TFLLine from "./TFLLine";
 
 const List = styled.ul`
   flex: 1 1 auto;
   padding: 0;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   overflow: auto;
   justify-content: stretch;
   z-index: 2;
-`
+`;
 
 const TFLLineStatusList = ({ lineStatuses }) => {
   return (
@@ -24,7 +24,7 @@ const TFLLineStatusList = ({ lineStatuses }) => {
         />
       ))}
     </List>
-  )
-}
+  );
+};
 
-export default TFLLineStatusList
+export default TFLLineStatusList;

@@ -10,7 +10,7 @@ const List = styled.ul`
   flex-direction: column;
   flex: 0 1 15rem;
   font-variant-numeric: tabular-nums;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: space-between;
   list-style-type: none;
   overflow: hidden;

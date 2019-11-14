@@ -9,7 +9,10 @@ const stylePartial = props =>
         background-repeat: no-repeat;
         background-position: 0 65%;
       `
-    : null
+    : css`
+        display: inline-block;
+        margin-left: 1em;
+      `
 
 const StyledStatus = styled.div`
   font-size: 0.75em;

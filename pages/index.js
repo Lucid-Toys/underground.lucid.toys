@@ -1,48 +1,37 @@
 import styled from "@emotion/styled"
 import useSWR from "swr"
-import fetch from "unfetch"
 import NetworkIndicator from "../components/NetworkIndicator"
 import TFLLineStatusList from "../components/TFLLineStatusList"
 import Timeline from "../components/Timeline"
+import fetcher from "../utils/fetcher"
 
 const AppContainer = styled.main`
   display: flex;
   flex: 1;
 `
 
-const Index = () => {
-  const { data, error } = useSWR(
-    "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status",
-    url => fetch(url).then(_ => _.json()),
-    { refreshInterval: 3000 },
-    true
-  )
+const Index = ({ initialData }) => {
+  const { data } = useSWR("/api/data", fetcher, {
+    refreshInterval: 3000,
+    initialData,
+  })
 
-  const lineStatuses = data
-    ? data
-        .sort((a, b) => {
-          return a.name.localeCompare(b.name)
-        })
-        .sort((a, b) => {
-          switch (a.lineStatuses[0].statusSeverityDescription) {
-            case "Good Service":
-              return 1
-            case "Severe Delays":
-            default:
-              return -1
-          }
-        })
-    : []
-
-  return (
+  return data ? (
     <>
       <NetworkIndicator />
       <AppContainer>
-        <TFLLineStatusList lineStatuses={lineStatuses} />
+        <TFLLineStatusList lineStatuses={data} />
         <Timeline />
       </AppContainer>
     </>
+  ) : (
+    "Loading"
   )
+}
+
+Index.getInitialProps = async () => {
+  const data = await fetcher("http://localhost:3000/api/data")
+  return { initialData: data }
 }
 
 export default Index

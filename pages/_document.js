@@ -72,6 +72,8 @@ class UndergroundDocument extends Document {
           <link rel="shortcut icon" href="/images/favicon.png" />
           <link rel="apple-touch-icon" href="/images/app-icon.png" />
           <link rel="shortcut icon" href="/images/app-icon.png" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-title" content="Underground" />
         </Head>
         <body>
           <GlobalStyles />

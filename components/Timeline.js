@@ -1,8 +1,9 @@
 import { keyframes } from "@emotion/core"
 import styled from "@emotion/styled"
+import congestionChart from "./images/congestion-chart.svg"
 
 const List = styled.ul`
-  background-image: url("/images/congestion-chart.svg");
+  background-image: url(${congestionChart});
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: 100% 100%;

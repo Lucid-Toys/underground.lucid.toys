@@ -1,0 +1,16 @@
+{
+  "name": "Underground | Lucid Toys",
+  "short_name": "Underground",
+  "icons": [
+    {
+      "src": "/images/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1a1a1a",
+  "background_color": "#f7f7f7",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

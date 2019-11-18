@@ -70,6 +70,8 @@ class UndergroundDocument extends Document {
             rel="stylesheet"
           />
           <link rel="shortcut icon" href="/images/favicon.png" />
+          <link rel="apple-touch-icon" href="/images/app-icon.png" />
+          <link rel="shortcut icon" href="/images/app-icon.png" />
         </Head>
         <body>
           <GlobalStyles />

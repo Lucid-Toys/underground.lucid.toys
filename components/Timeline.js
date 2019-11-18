@@ -46,8 +46,8 @@ const secondsPulse = keyframes`
 
 const ClockListItem = styled.li`
   align-items: flex-start;
-  background-image: linear-gradient(var(--dark), var(--dark) 50%, transparent);
-  border-top: 1px solid;
+  background-color: rgba(26, 26, 26, 0.85);
+  border-top: 2px solid;
   color: ${props =>
     props.congestion === 2
       ? "var(--danger)"
@@ -59,10 +59,10 @@ const ClockListItem = styled.li`
   margin-left: -1em;
   padding: 0.5em;
   padding-left: 1em;
-  padding-bottom: 1em;
   position: absolute;
   top: ${props => props.progress}%;
   transition: 0.3s ease;
+  transform: translate3d(0, calc(50% - 2px), 0);
   width: 100%;
   z-index: 1;
 
@@ -79,7 +79,7 @@ const ClockListItem = styled.li`
     height: 8px;
     background-color: currentColor;
     border-radius: 100%;
-    margin-top: -4px;
+    margin-top: -5px;
   }
 
   @media (max-width: 600px) {

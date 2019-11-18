@@ -1,0 +1,36 @@
+<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  @keyframes pulse {
+    0%, 25%, 100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: .4;
+    }
+  }
+
+  #sig-1, #sig-2, #sig-3, #sig-4 {
+    animation: pulse 2s ease infinite;
+    animation-fill-mode: both;
+  }
+
+  #sig-2 {
+    animation-delay: .25s;
+  }
+
+  #sig-3 {
+    animation-delay: .5s;
+  }
+
+  #sig-4 {
+    animation-delay: .75s;
+  }
+</style>
+<g id="online">
+<circle id="sig-1" cx="8" cy="13" r="1" fill="white"/>
+<path id="sig-2" fill-rule="evenodd" clip-rule="evenodd" d="M11.7921 10.35C10.7585 9.50614 9.43838 9 8 9C6.59795 9 5.30822 9.4809 4.28675 10.2867L5.17845 11.1784C5.9674 10.595 6.94341 10.25 8 10.25C9.09302 10.25 10.0998 10.6192 10.9025 11.2396L11.7921 10.35Z" fill="white"/>
+<path id="sig-3" fill-rule="evenodd" clip-rule="evenodd" d="M13.9206 8.22149C12.3382 6.83816 10.267 6 8 6C5.76926 6 3.72807 6.81158 2.15559 8.15559L3.04264 9.04264C4.38628 7.92332 6.11451 7.25 8 7.25C9.92175 7.25 11.6801 7.94947 13.0344 9.1077L13.9206 8.22149Z" fill="white"/>
+<path id="sig-4" fill-rule="evenodd" clip-rule="evenodd" d="M0.550272 5.59186L0.0710678 6.07107L0.914963 6.91496C2.8068 5.25579 5.28594 4.25 8 4.25C10.7503 4.25 13.2593 5.2828 15.1604 6.98171L16.0456 6.09657C13.9172 4.17204 11.0955 3 8 3C5.18526 3 2.59686 3.96911 0.550272 5.59186Z" fill="white"/>
+</g>
+</svg>

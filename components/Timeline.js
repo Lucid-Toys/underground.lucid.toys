@@ -1,8 +1,9 @@
 import { keyframes } from "@emotion/core"
 import styled from "@emotion/styled"
+import congestionChart from "./images/congestion-chart.svg"
 
 const List = styled.ul`
-  background-image: url("/images/congestion-chart.svg");
+  background-image: url(${congestionChart});
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -10,7 +11,7 @@ const List = styled.ul`
   flex-direction: column;
   flex: 0 1 15rem;
   font-variant-numeric: tabular-nums;
-  min-height: 100vh;
+  min-height: 100%;
   justify-content: space-between;
   list-style-type: none;
   overflow: hidden;
@@ -78,6 +79,12 @@ const ClockListItem = styled.li`
     background-color: currentColor;
     border-radius: 100%;
     margin-top: -4px;
+  }
+
+  @media (max-width: 600px) {
+    p {
+      display: none;
+    }
   }
 `
 

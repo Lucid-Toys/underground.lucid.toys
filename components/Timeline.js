@@ -79,6 +79,12 @@ const ClockListItem = styled.li`
     border-radius: 100%;
     margin-top: -4px;
   }
+
+  @media (max-width: 600px) {
+    p {
+      display: none;
+    }
+  }
 `
 
 const SecondsSep = styled.span`

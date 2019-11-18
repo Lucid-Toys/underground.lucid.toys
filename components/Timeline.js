@@ -1,5 +1,6 @@
 import { keyframes } from "@emotion/core"
 import styled from "@emotion/styled"
+import useTime from "../hooks/useTime"
 import congestionChart from "./images/congestion-chart.svg"
 
 const List = styled.ul`
@@ -45,8 +46,7 @@ const secondsPulse = keyframes`
 
 const ClockListItem = styled.li`
   align-items: flex-start;
-  background-color: rgba(26, 26, 26, 0.5);
-  backdrop-filter: blur(15px);
+  background-image: linear-gradient(var(--dark), var(--dark) 50%, transparent);
   border-top: 1px solid;
   color: ${props =>
     props.congestion === 2
@@ -59,6 +59,7 @@ const ClockListItem = styled.li`
   margin-left: -1em;
   padding: 0.5em;
   padding-left: 1em;
+  padding-bottom: 1em;
   position: absolute;
   top: ${props => props.progress}%;
   transition: 0.3s ease;
@@ -114,9 +115,9 @@ const getCongestion = hours => {
 }
 
 function Clock(props) {
-  const timer = useNewTimer(new Date())
+  const timer = useTime(1000)
   const interval = 1000 * 60 * 60 * 24
-  const startOfDay = Math.floor(Date.now() / interval) * interval
+  const startOfDay = Math.floor(timer / interval) * interval
   const elapsed = Math.abs(timer - startOfDay) / interval
   const hours = timer.getHours()
   const minutes = timer.getMinutes()
@@ -135,23 +136,6 @@ function Clock(props) {
       <p>{congestion.message}</p>
     </ClockListItem>
   )
-}
-
-function useNewTimer(currentDate) {
-  const [date, setDate] = React.useState(currentDate)
-
-  React.useEffect(() => {
-    var timerID = setInterval(() => tick(), 1000)
-    return function cleanup() {
-      clearInterval(timerID)
-    }
-  })
-
-  function tick() {
-    setDate(new Date())
-  }
-
-  return date
 }
 
 export default function Timeline() {

@@ -30,7 +30,7 @@ const Index = ({ initialData }) => {
 }
 
 Index.getInitialProps = async () => {
-  const data = await fetcher("/api/data")
+  const data = await fetcher("https://underground.lucid.toys/api/data")
   return { initialData: data }
 }
 

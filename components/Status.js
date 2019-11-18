@@ -1,11 +1,12 @@
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
+import warningIcon from "./images/warning.svg"
 
 const stylePartial = props =>
   props.severity < 10
     ? css`
         padding-left: 1em;
-        background-image: url("/images/warning.svg");
+        background-image: url(${warningIcon});
         background-repeat: no-repeat;
         background-position: 0 65%;
       `

@@ -1,5 +1,7 @@
 import styled from "@emotion/styled"
 import useNetworkStatus from "../hooks/useNetworkStatus"
+import offlineImage from "./images/offline.svg"
+import onlineImage from "./images/online.svg"
 
 const Container = styled.header`
   padding: 0.5em;
@@ -32,7 +34,7 @@ const OnlineContainer = styled(Container)`
 const Offline = () => (
   <OfflineContainer>
     <p>
-      <img src="/images/offline.svg" />
+      <img src={offlineImage} />
       <strong>No internet connection.</strong> Service updates may no longer be
       accurate.
     </p>
@@ -42,7 +44,7 @@ const Offline = () => (
 const Online = () => (
   <OnlineContainer>
     <p>
-      <img src="/images/online.svg" /> Updating live
+      <img src={onlineImage} /> Updating live
     </p>
   </OnlineContainer>
 )

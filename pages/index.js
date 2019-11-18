@@ -1,7 +1,14 @@
+import styled from "@emotion/styled"
 import useSWR from "swr"
 import fetch from "unfetch"
+import NetworkIndicator from "../components/NetworkIndicator"
 import TFLLineStatusList from "../components/TFLLineStatusList"
 import Timeline from "../components/Timeline"
+
+const AppContainer = styled.main`
+  display: flex;
+  flex: 1;
+`
 
 const Index = () => {
   const { data, error } = useSWR(
@@ -28,10 +35,13 @@ const Index = () => {
     : []
 
   return (
-    <React.Fragment>
-      <TFLLineStatusList lineStatuses={lineStatuses} />
-      <Timeline />
-    </React.Fragment>
+    <>
+      <NetworkIndicator />
+      <AppContainer>
+        <TFLLineStatusList lineStatuses={lineStatuses} />
+        <Timeline />
+      </AppContainer>
+    </>
   )
 }
 

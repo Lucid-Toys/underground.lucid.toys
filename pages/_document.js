@@ -49,6 +49,7 @@ const GlobalStyles = () => (
 
       #__next {
         display: flex;
+        flex-direction: column;
       }
     `}
   />

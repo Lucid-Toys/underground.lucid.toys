@@ -30,7 +30,7 @@ const Index = ({ initialData }) => {
 }
 
 Index.getInitialProps = async () => {
-  const data = await fetcher("http://localhost:3000/api/data")
+  const data = await fetcher("/api/data")
   return { initialData: data }
 }
 

@@ -5,7 +5,7 @@ import congestionChart from "./images/congestion-chart.svg"
 
 const List = styled.ul`
   background-image: url(${congestionChart});
-  background-position: right 10px center;
+  background-position: right 0 center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
@@ -94,14 +94,14 @@ const SecondsSep = styled.span`
 `
 
 const getCongestion = hours => {
-  if ((hours >= 8 && hours < 9) || (hours >= 17 && hours <= 18)) {
+  if ((hours >= 7 && hours < 10) || (hours >= 17 && hours <= 18)) {
     return {
       congestion: 2,
       message: "Usually very busy",
     }
   }
 
-  if (hours === 9 || hours === 19 || hours === 7 || hours === 16) {
+  if (hours === 6 || hours === 10 || hours === 16 || hours === 19) {
     return {
       congestion: 1,
       message: "Usually quite busy",

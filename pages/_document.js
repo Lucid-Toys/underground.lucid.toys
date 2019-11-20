@@ -76,6 +76,7 @@ class UndergroundDocument extends Document {
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-title" content="Underground" />
           <meta name="mobile-web-app-capable" content="yes" />
+          <link rel="manifest" href="/manifest.json" />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async

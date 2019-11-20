@@ -1,5 +1,6 @@
 import { css, Global } from "@emotion/core"
 import Document, { Head, Html, Main, NextScript } from "next/document"
+import { GA_TRACKING_ID } from "../utils/gtag"
 
 const GlobalStyles = () => (
   <Global
@@ -75,6 +76,21 @@ class UndergroundDocument extends Document {
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-title" content="Underground" />
           <meta name="mobile-web-app-capable" content="yes" />
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}');
+          `,
+            }}
+          />
         </Head>
         <body>
           <GlobalStyles />

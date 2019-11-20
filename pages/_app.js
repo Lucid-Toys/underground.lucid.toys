@@ -1,6 +1,10 @@
 import App from "next/app"
 import Head from "next/head"
+import Router from "next/router"
 import React from "react"
+import * as gtag from "../utils/gtag"
+
+Router.events.on("routeChangeComplete", url => gtag.pageview(url))
 
 export default class UndergroundApp extends App {
   static async getInitialProps({ Component, ctx }) {

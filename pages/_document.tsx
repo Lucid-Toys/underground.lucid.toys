@@ -1,6 +1,6 @@
-import { css, Global } from "@emotion/core"
-import Document, { Head, Html, Main, NextScript } from "next/document"
-import { GA_TRACKING_ID } from "../utils/gtag"
+import { css, Global } from '@emotion/core'
+import Document, { Head, Html, Main, NextScript } from 'next/document'
+import { GA_TRACKING_ID } from '../utils/gtag'
 
 const GlobalStyles = () => (
   <Global
@@ -19,7 +19,7 @@ const GlobalStyles = () => (
         --foreground: var(--light);
         --background: var(--dark);
 
-        --fontStack: "IBM Plex Sans", -apple-system, system-ui,
+        --fontStack: 'IBM Plex Sans', -apple-system, system-ui,
           BlinkMacSystemFont, sans-serif;
       }
 
@@ -77,6 +77,12 @@ class UndergroundDocument extends Document {
           <meta name="apple-mobile-web-app-title" content="Underground" />
           <meta name="mobile-web-app-capable" content="yes" />
           <link rel="manifest" href="/manifest.json" />
+          <link
+            as="fetch"
+            crossOrigin="anonymous"
+            href="/api/data"
+            rel="preload"
+          />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async

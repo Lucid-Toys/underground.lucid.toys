@@ -1,5 +1,5 @@
-import styled from "@emotion/styled"
-import TFLLine from "./TFLLine"
+import styled from '@emotion/styled'
+import TFLLine from './TFLLine'
 
 const List = styled.ul`
   flex: 1 1 auto;
@@ -10,6 +10,7 @@ const List = styled.ul`
   overflow: auto;
   justify-content: stretch;
   z-index: 2;
+  order: 1;
 `
 
 const TFLLineStatusList = ({ lineStatuses }) => {

@@ -4,6 +4,7 @@ import React from 'react'
 import useSWR from 'swr'
 import TFLLineStatusList from '../components/TFLLineStatusList'
 import Timeline from '../components/Timeline'
+import { BREAKPOINT } from '../utils/constants'
 import fetcher from '../utils/fetcher'
 
 const NetworkIndicator = dynamic(
@@ -14,6 +15,10 @@ const NetworkIndicator = dynamic(
 const AppContainer = styled.main`
   display: flex;
   flex: 1;
+
+  @media (max-width: ${BREAKPOINT}) {
+    flex-direction: column;
+  }
 `
 
 const Index = ({ initialData }) => {

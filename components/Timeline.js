@@ -22,7 +22,7 @@ const List = styled.ul`
 
   @media (max-width: ${BREAKPOINT}) {
     background-image: unset;
-    flex: 1 0 100%;
+    flex: 0 1 auto;
     order: 0;
     padding: 0;
   }

@@ -90,6 +90,8 @@ class UndergroundDocument extends Document {
             href="/api/data"
             rel="preload"
           />
+          <link href="https://www.google-analytics.com" rel="preconnect" />
+          <link href="https://www.googletagmanager.com" rel="preconnect" />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async

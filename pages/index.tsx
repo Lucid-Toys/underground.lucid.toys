@@ -1,11 +1,13 @@
 import styled from '@emotion/styled'
+import { NextApiRequest } from 'next'
 import dynamic from 'next/dynamic'
-import React from 'react'
+import React, { ReactElement } from 'react'
 import useSWR from 'swr'
 import TFLLineStatusList from '../components/TFLLineStatusList'
 import Timeline from '../components/Timeline'
 import { BREAKPOINT } from '../utils/constants'
 import fetcher from '../utils/fetcher'
+import { TfLAPIResponse } from './api/data'
 
 const NetworkIndicator = dynamic(
   () => import('../components/NetworkIndicator'),
@@ -21,7 +23,7 @@ const AppContainer = styled.main`
   }
 `
 
-const Index = ({ initialData }) => {
+const Index = ({ initialData }): ReactElement | string => {
   const { data } = useSWR('/api/data', fetcher, {
     refreshInterval: 3000,
     initialData,
@@ -40,7 +42,10 @@ const Index = ({ initialData }) => {
   )
 }
 
-Index.getInitialProps = async ctx => {
+Index.getInitialProps = async (ctx: {
+  process: { browser: boolean }
+  req: NextApiRequest
+}): Promise<{ initialData: [TfLAPIResponse] }> => {
   const { process, req } = ctx
   const origin =
     process && process.browser

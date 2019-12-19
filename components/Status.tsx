@@ -1,8 +1,9 @@
-import { css } from "@emotion/core"
-import styled from "@emotion/styled"
-import warningIcon from "./images/warning.svg"
+import { css, SerializedStyles } from '@emotion/core'
+import styled from '@emotion/styled'
+import { ReactComponentElement } from 'react'
+import warningIcon from './images/warning.svg'
 
-const stylePartial = props =>
+const stylePartial = (props): SerializedStyles =>
   props.severity < 10
     ? css`
         padding-left: 1em;
@@ -23,6 +24,9 @@ const StyledStatus = styled.div`
   ${stylePartial};
 `
 
-export default function Status({ children, severity }) {
+export default function Status({
+  children,
+  severity,
+}): ReactComponentElement<typeof StyledStatus> {
   return <StyledStatus severity={severity}>{children}</StyledStatus>
 }

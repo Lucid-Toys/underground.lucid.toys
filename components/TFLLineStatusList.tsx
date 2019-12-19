@@ -1,5 +1,11 @@
 import styled from '@emotion/styled'
+import { ReactComponentElement } from 'react'
+import { TfLAPIResponse } from '../pages/api/data'
 import TFLLine from './TFLLine'
+
+interface Props {
+  lineStatuses: [TfLAPIResponse]
+}
 
 const List = styled.ul`
   flex: 1 1 auto;
@@ -13,7 +19,9 @@ const List = styled.ul`
   order: 1;
 `
 
-const TFLLineStatusList = ({ lineStatuses }) => {
+const TFLLineStatusList = ({
+  lineStatuses,
+}: Props): ReactComponentElement<typeof List> => {
   return (
     <List>
       {lineStatuses.map(line => (

@@ -1,12 +1,13 @@
-import App from "next/app"
-import Head from "next/head"
-import Router from "next/router"
-import React from "react"
-import * as gtag from "../utils/gtag"
+import App from 'next/app'
+import Head from 'next/head'
+import Router from 'next/router'
+import React, { ReactElement } from 'react'
+import * as gtag from '../utils/gtag'
 
-Router.events.on("routeChangeComplete", url => gtag.pageview(url))
+Router.events.on('routeChangeComplete', url => gtag.pageview(url))
 
 export default class UndergroundApp extends App {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
@@ -17,7 +18,7 @@ export default class UndergroundApp extends App {
     return { pageProps }
   }
 
-  render() {
+  render(): ReactElement {
     const { Component, pageProps } = this.props
 
     return (

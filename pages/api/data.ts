@@ -10,6 +10,7 @@ interface TfLDisruption {
   additionalInfo: string
   created: string
   lastUpdate: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any
 }
 
@@ -22,10 +23,11 @@ interface TfLLineStatus {
   reason: string
   created: string
   disruption: TfLDisruption
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any
 }
 
-interface TfLAPIResponse {
+export interface TfLAPIResponse {
   $type: 'Tfl.Api.Presentation.Entities.Line, Tfl.Api.Presentation.Entities'
   id: string
   name: string
@@ -34,10 +36,11 @@ interface TfLAPIResponse {
   created: string
   modified: string
   lineStatuses: TfLLineStatus[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any
 }
 
-export default (request: NextApiRequest, result: NextApiResponse) => {
+export default (request: NextApiRequest, result: NextApiResponse): void => {
   fetch(API_URL)
     .then(response => response.json())
     .then((data: TfLAPIResponse[]) => {

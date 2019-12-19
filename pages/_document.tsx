@@ -68,6 +68,10 @@ class UndergroundDocument extends Document {
     return (
       <Html lang="en-GB">
         <Head>
+          <meta
+            content="Lucid Underground shows you the current real-time status for the London Underground, DLR, TfL Rail, and London Overground in a minimal, no-fuss interface."
+            name="Description"
+          />
           <link
             href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700&display=swap"
             rel="stylesheet"

@@ -10,7 +10,7 @@ const GlobalStyles = (): ReactComponentElement<typeof Global> => (
         --light: #f7f7f7;
         --dark: #1a1a1a;
         --med: #808080;
-        --interactive: rgb(0, 150, 255);
+        --interactive: rgb(0, 104, 179);
         --interactive-alpha: rgb(0, 150, 255, 0.25);
         --focus: #f3bf4e;
         --danger: rgb(227, 61, 38);
@@ -66,7 +66,7 @@ class UndergroundDocument extends Document {
 
   render(): ReactComponentElement<typeof Html> {
     return (
-      <Html>
+      <Html lang="en-GB">
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700&display=swap"

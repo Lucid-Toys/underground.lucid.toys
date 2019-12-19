@@ -46,7 +46,7 @@ const LucidLink = styled.a`
 const Offline = (): ReactComponentElement<typeof OfflineContainer> => (
   <OfflineContainer>
     <p>
-      <img src={offlineImage} />
+      <img alt="Network offline icon" src={offlineImage} />
       <strong>No internet connection.</strong> Service updates may no longer be
       accurate.
     </p>
@@ -56,7 +56,7 @@ const Offline = (): ReactComponentElement<typeof OfflineContainer> => (
 const Online = (): ReactComponentElement<typeof OnlineContainer> => (
   <OnlineContainer>
     <p>
-      <img src={onlineImage} /> Updating live
+      <img alt="Network online icon" src={onlineImage} /> Updating live
     </p>
     <LucidLink href="https://lucid.toys" title="Lucid Toys">
       <img alt="Lucid Logo" src={lucidLogo} />

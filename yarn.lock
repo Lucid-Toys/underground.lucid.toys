@@ -5475,10 +5475,10 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-swr@^0.1.10:
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-0.1.10.tgz#18b43e936cecda979e6fb0845d1c7da54b11b862"
-  integrity sha512-gzPHzZjNuNT7YglXRZjbqpDQNrJK0G1j6cQ+xdLnWnh/ecBckY2Jd6TcD6MtCAtM7eBWFT6S3vPLH1Q8VUD9qA==
+swr@^0.1.15:
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-0.1.15.tgz#de3e5a264a959a74bb7c0eb583bac442f1e0d592"
+  integrity sha512-q0dQYDcGHjpo9MbQl5ssKdbxsMgBme8UhAn1MbKlX+0fbz6tw8loT2v/H4PGbeiICvOFzK9YaoslBCaV3IyNxA==
   dependencies:
     fast-deep-equal "2.0.1"
 

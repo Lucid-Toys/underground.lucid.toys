@@ -1,8 +1,9 @@
-import styled from "@emotion/styled"
-import useNetworkStatus from "../hooks/useNetworkStatus"
-import lucidLogo from "./images/lucid-icon.svg"
-import offlineImage from "./images/offline.svg"
-import onlineImage from "./images/online.svg"
+import styled from '@emotion/styled'
+import { ReactComponentElement } from 'react'
+import useNetworkStatus from '../hooks/useNetworkStatus'
+import lucidLogo from './images/lucid-icon.svg'
+import offlineImage from './images/offline.svg'
+import onlineImage from './images/online.svg'
 
 const Container = styled.header`
   padding: 0.5em;
@@ -42,7 +43,7 @@ const LucidLink = styled.a`
   background-color: rgba(0, 0, 0, 0.3);
 `
 
-const Offline = () => (
+const Offline = (): ReactComponentElement<typeof OfflineContainer> => (
   <OfflineContainer>
     <p>
       <img src={offlineImage} />
@@ -52,17 +53,19 @@ const Offline = () => (
   </OfflineContainer>
 )
 
-const Online = () => (
+const Online = (): ReactComponentElement<typeof OnlineContainer> => (
   <OnlineContainer>
     <p>
       <img src={onlineImage} /> Updating live
     </p>
     <LucidLink href="https://lucid.toys" title="Lucid Toys">
-      <img src={lucidLogo} alt="Lucid Logo" />
+      <img alt="Lucid Logo" src={lucidLogo} />
     </LucidLink>
   </OnlineContainer>
 )
-export default function NetworkIndicator() {
+export default function NetworkIndicator(): ReactComponentElement<
+  typeof Online | typeof Offline
+> {
   const isOnline = useNetworkStatus()
   return isOnline ? <Online /> : <Offline />
 }

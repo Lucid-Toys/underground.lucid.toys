@@ -1,8 +1,9 @@
 import { css, Global } from '@emotion/core'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+import { ReactComponentElement } from 'react'
 import { GA_TRACKING_ID } from '../utils/gtag'
 
-const GlobalStyles = () => (
+const GlobalStyles = (): ReactComponentElement<typeof Global> => (
   <Global
     styles={css`
       :root {
@@ -57,12 +58,13 @@ const GlobalStyles = () => (
 )
 
 class UndergroundDocument extends Document {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
   }
 
-  render() {
+  render(): ReactComponentElement<typeof Html> {
     return (
       <Html>
         <Head>
@@ -70,13 +72,13 @@ class UndergroundDocument extends Document {
             href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700&display=swap"
             rel="stylesheet"
           />
-          <link rel="shortcut icon" href="/images/favicon.png" />
-          <link rel="apple-touch-icon" href="/images/app-icon.png" />
-          <link rel="shortcut icon" href="/images/app-icon.png" />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-title" content="Underground" />
-          <meta name="mobile-web-app-capable" content="yes" />
-          <link rel="manifest" href="/manifest.json" />
+          <link href="/images/favicon.png" rel="shortcut icon" />
+          <link href="/images/app-icon.png" rel="apple-touch-icon" />
+          <link href="/images/app-icon.png" rel="shortcut icon" />
+          <meta content="yes" name="apple-mobile-web-app-capable" />
+          <meta content="Underground" name="apple-mobile-web-app-title" />
+          <meta content="yes" name="mobile-web-app-capable" />
+          <link href="/manifest.json" rel="manifest" />
           <link
             as="fetch"
             crossOrigin="anonymous"

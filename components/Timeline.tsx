@@ -1,8 +1,15 @@
 import { keyframes } from '@emotion/core'
 import styled from '@emotion/styled'
+import { ReactComponentElement, ReactNode } from 'react'
 import useTime from '../hooks/useTime'
 import { BREAKPOINT } from '../utils/constants'
 import congestionChart from './images/congestion-chart.svg'
+
+interface ClockListItemProps {
+  congestion: number
+  progress: number
+  children: ReactNode
+}
 
 const List = styled.ul`
   background-image: url(${congestionChart});
@@ -57,23 +64,25 @@ const secondsPulse = keyframes`
   }
 `
 
-const ClockListItem = styled.li`
+const ClockListItem = styled.li<ClockListItemProps>(
+  props => `
   align-items: flex-start;
   background-color: rgba(26, 26, 26, 0.85);
   border-top: 2px solid;
-  color: ${props =>
+  color: ${
     props.congestion === 2
       ? 'var(--danger)'
       : props.congestion === 1
       ? 'var(--warning)'
-      : 'var(--foreground)'};
+      : 'var(--foreground)'
+  };
   display: flex;
   flex-flow: row wrap;
   margin-left: -1em;
   padding: 0.5em;
   padding-left: 1em;
   position: absolute;
-  top: ${props => props.progress}%;
+  top: ${props.progress}%;
   transition: 0.3s ease;
   transform: translate3d(0, calc(50% - 2px), 0);
   width: 100%;
@@ -106,12 +115,13 @@ const ClockListItem = styled.li`
     }
   }
 `
+)
 
 const SecondsSep = styled.span`
   animation: ${secondsPulse} 0.5s ease infinite alternate;
 `
 
-const getCongestion = hours => {
+const getCongestion = (hours): { congestion: number; message: string } => {
   if ((hours >= 7 && hours < 10) || (hours >= 17 && hours <= 18)) {
     return {
       congestion: 2,
@@ -132,11 +142,11 @@ const getCongestion = hours => {
   }
 }
 
-function Clock(props) {
+function Clock(): ReactComponentElement<typeof ClockListItem> {
   const timer = useTime(1000)
   const interval = 1000 * 60 * 60 * 24
-  const startOfDay = Math.floor(timer / interval) * interval
-  const elapsed = Math.abs(timer - startOfDay) / interval
+  const startOfDay = Math.floor(Number(timer) / interval) * interval
+  const elapsed = Math.abs(Number(timer) - startOfDay) / interval
   const hours = timer.getHours()
   const minutes = timer.getMinutes()
 
@@ -156,7 +166,7 @@ function Clock(props) {
   )
 }
 
-export default function Timeline() {
+export default function Timeline(): ReactComponentElement<typeof List> {
   const timestamps = Array(24)
     .fill(undefined)
     .map((_, i) => `${i}`.padStart(2, '0'))

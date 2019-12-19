@@ -1,12 +1,19 @@
-import styled from "@emotion/styled"
-import lineColors from "../utils/lineColors"
-import Status from "./Status"
+import styled from '@emotion/styled'
+import { ReactComponentElement } from 'react'
+import lineColors from '../utils/lineColors'
+import Status from './Status'
 
-const ListItem = styled.li`
-  align-items: ${props => (props.severity < 10 ? "start" : "center")};
-  background-color: ${props => props.lineColor};
+interface ListItemProps {
+  severity: number
+  lineColor: string
+}
+
+const ListItem = styled.li<ListItemProps>(
+  props => `
+  align-items: ${props.severity < 10 ? 'start' : 'center'};
+  background-color: ${props.lineColor};
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-  border-top: 0.25em solid ${props => props.lineColor};
+  border-top: 0.25em solid ${props.lineColor};
   color: var(--light);
   padding: 0.75em;
   padding-left: 5vw;
@@ -20,6 +27,7 @@ const ListItem = styled.li`
     line-height: 1.5;
   }
 `
+)
 
 const Box = styled.div`
   display: flex;
@@ -27,12 +35,18 @@ const Box = styled.div`
   flex: 1 1 20em;
 `
 
-const LineName = styled.h2`
+const LineName = styled.h2(
+  (props: { severity: number }) => `
   font-weight: 400;
-  font-size: ${props => (props.severity < 10 ? 1.25 : 1)}rem;
+  font-size: ${props.severity < 10 ? 1.25 : 1}rem;
 `
+)
 
-export default function TFLLine({ status, lineID, lineName }) {
+export default function TFLLine({
+  status,
+  lineID,
+  lineName,
+}): ReactComponentElement<typeof ListItem> {
   const { statusSeverity, statusSeverityDescription, reason } = status[0]
 
   return (

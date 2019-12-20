@@ -45,6 +45,25 @@ export default (request: NextApiRequest, result: NextApiResponse): void => {
     .then(response => response.json())
     .then((data: TfLAPIResponse[]) => {
       /**
+       * Sometimes, the TfL API will return identical severity reports in a
+       * line. We want to remove any extraneous messages.
+       */
+
+      const sanitisedData = data.map(datum => {
+        const sanitisedLineStatuses = datum.lineStatuses.filter(
+          (lineStatus, index, self) =>
+            index === self.findIndex(t => t.reason === lineStatus.reason)
+        )
+        return {
+          ...datum,
+          lineStatuses: sanitisedLineStatuses,
+        }
+      })
+
+      return sanitisedData
+    })
+    .then((data: TfLAPIResponse[]) => {
+      /**
        * Line severity status descriptions often begin with the name of the
        * line. This is somewhat redundant given that in our context, the
        * name of the line will always be visible; so we'll remove it from the

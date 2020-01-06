@@ -9,5 +9,6 @@ module.exports = withImages(
     experimental: {
       publicDirectory: true,
     },
+    reactStrictMode: true,
   })
 )

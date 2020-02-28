@@ -2,7 +2,17 @@ import fetch from 'isomorphic-unfetch'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { API_URL } from '../../utils/constants'
 
-interface TfLDisruption {
+interface UnusedKeys {
+  $type?: string
+  crowding?: {
+    $type?: string
+  }
+  serviceTypes?: {
+    [x: string]: unknown
+  }
+}
+
+interface TfLDisruption extends UnusedKeys {
   category: string
   type: string
   categoryDescription: string
@@ -10,12 +20,9 @@ interface TfLDisruption {
   additionalInfo: string
   created: string
   lastUpdate: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [x: string]: any
 }
 
-interface TfLLineStatus {
-  $type: 'Tfl.Api.Presentation.Entities.LineStatus, Tfl.Api.Presentation.Entities'
+interface TfLLineStatus extends UnusedKeys {
   id: number
   lineId: string
   statusSeverity: number
@@ -23,12 +30,9 @@ interface TfLLineStatus {
   reason: string
   created: string
   disruption: TfLDisruption
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [x: string]: any
 }
 
-export interface TfLAPIResponse {
-  $type: 'Tfl.Api.Presentation.Entities.Line, Tfl.Api.Presentation.Entities'
+export interface TfLAPIResponse extends UnusedKeys {
   id: string
   name: string
   modeName: 'tube' | 'dlr' | 'overground' | 'tflrail'
@@ -36,8 +40,6 @@ export interface TfLAPIResponse {
   created: string
   modified: string
   lineStatuses: TfLLineStatus[]
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [x: string]: any
 }
 
 export default (request: NextApiRequest, result: NextApiResponse): void => {
@@ -48,7 +50,6 @@ export default (request: NextApiRequest, result: NextApiResponse): void => {
        * Sometimes, the TfL API will return identical severity reports in a
        * line. We want to remove any extraneous messages.
        */
-
       const sanitisedData = data.map(datum => {
         const sanitisedLineStatuses = datum.lineStatuses.filter(
           (lineStatus, index, self) =>
@@ -78,22 +79,39 @@ export default (request: NextApiRequest, result: NextApiResponse): void => {
             matchingRegex,
             ''
           )
-          /**
-           * Return the new reason for each line status
-           */
-          return {
+          const status = {
             ...lineStatus,
             reason: transformedReason,
           }
+
+          /**
+           * There are some verbose keys on the returned data; let's delete the
+           * unused parts.
+           */
+          delete status.$type
+
+          /**
+           * Return the new reason for each line status
+           */
+          return status
         })
 
         /**
          * Return the new array of line statuses
          */
-        return {
+        const line = {
           ...datum,
           lineStatuses: transformedLineStatuses,
         }
+
+        /**
+         * Similar to above, let's delete unused keys.
+         */
+        delete line.$type
+        delete line.serviceTypes
+        delete line.crowding.$type
+
+        return line
       })
 
       /**

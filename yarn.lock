@@ -9774,10 +9774,10 @@ supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-swr@^0.1.16:
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-0.1.16.tgz#e1667f2260ac091fb4c2cc6255ca1b8ff83b0acd"
-  integrity sha512-E+i0pJOCCPRxnwQMFKf3RYr4os+B4swNuwnHo+pBCNxwfuJiN0ZalwP9u4OqjoeMl9eZFgcQYUPHD8KVyTqM1g==
+swr@^0.1.18:
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-0.1.18.tgz#be62df4cb8d188dc092305b35ecda1f3be8e61c1"
+  integrity sha512-lD31JxsD0bXdT7dyGVIB7MHcwgFp+HbBBOLt075hJT0sEgW01E3+EuCeB6fsavxZ2UjUZ3f+SbNMo9c8pv9uiA==
   dependencies:
     fast-deep-equal "2.0.1"
 

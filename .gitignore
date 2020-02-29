@@ -5,3 +5,4 @@ yarn-error.log
 **/public/sw.js
 .now
 cypress/videos
+cypress/screenshots

@@ -134,6 +134,10 @@ export default (request: NextApiRequest, result: NextApiResponse): void => {
           )
         })
       result.json(sortedData)
+      result.status(200).end()
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error)
+      result.status(500).end()
+    })
 }

@@ -11,6 +11,6 @@ export default {
   jubilee: '#6B7279',
   metropolitan: '#751056',
   northern: '#000000',
-  piccadilly: '#001AA8',
+  piccadilly: '#1933CC',
   victoria: '#05A0E3',
 }

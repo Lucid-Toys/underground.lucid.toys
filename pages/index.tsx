@@ -42,17 +42,17 @@ const Index = ({ initialData }): ReactElement | string => {
   )
 }
 
-Index.getInitialProps = async (ctx: {
+export async function getServerSideProps(ctx: {
   process: { browser: boolean }
   req: NextApiRequest
-}): Promise<{ initialData: [TfLAPIResponse] }> => {
+}): Promise<{ props: { initialData: [TfLAPIResponse] } }> {
   const { process, req } = ctx
   const origin =
     process && process.browser
       ? window.location.origin
       : `${req.headers['x-forwarded-proto']}://${req.headers['x-forwarded-host']}`
   const data = await fetcher(`${origin}/api/data`)
-  return { initialData: data }
+  return { props: { initialData: data } }
 }
 
 export default Index

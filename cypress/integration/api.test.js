@@ -20,10 +20,9 @@ describe('Data API Endpoint', () => {
 
   it('has a status for the first returned line with the expected status keys', () => {
     const statusProperties = [
-      'lineId',
+      'id',
       'statusSeverity',
       'statusSeverityDescription',
-      'reason',
       'created',
     ]
     cy.log(`Fetching API data`)

@@ -3,6 +3,7 @@ import { NextApiRequest } from 'next'
 import dynamic from 'next/dynamic'
 import React, { ReactElement } from 'react'
 import useSWR from 'swr'
+import CovidBanner from '../components/CovidBanner'
 import TFLLineStatusList from '../components/TFLLineStatusList'
 import Timeline from '../components/Timeline'
 import { BREAKPOINT } from '../utils/constants'
@@ -32,6 +33,7 @@ const Index = ({ initialData }): ReactElement | string => {
   return data ? (
     <>
       <NetworkIndicator />
+      <CovidBanner />
       <AppContainer>
         <TFLLineStatusList lineStatuses={data} />
         <Timeline />

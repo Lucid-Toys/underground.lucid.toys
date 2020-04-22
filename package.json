@@ -6,7 +6,7 @@
   "author": "Daniel Eden <dan.eden@me.com>",
   "license": "MIT",
   "dependencies": {
-    "@cypress/code-coverage": "^1.14.0",
+    "@cypress/code-coverage": "^3.5.1",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "global": "^4.4.0",

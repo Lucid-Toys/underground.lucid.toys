@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
-    "@typescript-eslint/eslint-plugin": "^3.7.0",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
     "cypress": "^4.11.0",
     "eslint": "^7.5.0",

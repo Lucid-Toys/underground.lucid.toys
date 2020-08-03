@@ -2,6 +2,8 @@ node_modules
 .next
 yarn-error.log
 **/public/precache.*.js
+**/public/workbox.*.js
+**/public/workbox.*.js.map
 **/public/sw.js
 .now
 cypress/videos

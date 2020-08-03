@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { ReactComponentElement } from 'react'
-import { TfLAPIResponse } from '../pages/api/data'
+import { TfLAPIResponse } from '../utils/tflFetcher'
 import TFLLine from './TFLLine'
 
 interface Props {
@@ -24,7 +24,7 @@ const TFLLineStatusList = ({
 }: Props): ReactComponentElement<typeof List> => {
   return (
     <List>
-      {lineStatuses.map(line => (
+      {lineStatuses.map((line) => (
         <TFLLine
           key={line.id}
           lineID={line.id}

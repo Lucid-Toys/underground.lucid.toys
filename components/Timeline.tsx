@@ -1,6 +1,6 @@
 import { keyframes } from '@emotion/core'
 import styled from '@emotion/styled'
-import { ReactComponentElement, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import useTime from '../hooks/useTime'
 import { BREAKPOINT } from '../utils/constants'
 import congestionChart from './images/congestion-chart.svg'
@@ -65,7 +65,7 @@ const secondsPulse = keyframes`
 `
 
 const ClockListItem = styled.li<ClockListItemProps>(
-  props => `
+  (props) => `
   align-items: flex-start;
   background-color: rgba(26, 26, 26, 0.85);
   border-top: 2px solid;
@@ -142,7 +142,7 @@ const getCongestion = (hours): { congestion: number; message: string } => {
   }
 }
 
-function Clock(): ReactComponentElement<typeof ClockListItem> {
+function Clock() {
   const timer = useTime(1000)
   const interval = 1000 * 60 * 60 * 24
   const startOfDay = Math.floor(Number(timer) / interval) * interval
@@ -166,17 +166,15 @@ function Clock(): ReactComponentElement<typeof ClockListItem> {
   )
 }
 
-export default function Timeline(): ReactComponentElement<typeof List> {
+export default function Timeline() {
   const timestamps = Array(24)
     .fill(undefined)
     .map((_, i) => `${i}`.padStart(2, '0'))
 
-  const currentTime = Date.now
-
   return (
     <List>
       <Clock />
-      {timestamps.map(timestamp => (
+      {timestamps.map((timestamp) => (
         <ListItem key={timestamp}>
           {timestamp}
           :00

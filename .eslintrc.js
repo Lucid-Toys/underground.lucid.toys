@@ -27,6 +27,7 @@ module.exports = {
     'react/jsx-uses-react': 2,
     '@typescript-eslint/member-delimiter-style': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/jsx-uses-vars': 1,
   },
   overrides: [

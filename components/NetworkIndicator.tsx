@@ -43,12 +43,30 @@ const LucidLink = styled.a`
   background-color: rgba(0, 0, 0, 0.3);
 `
 
-const Offline = (): ReactComponentElement<typeof OfflineContainer> => (
+const logger = (t) => {
+  console.log(t)
+  return true
+}
+
+const Offline = ({
+  reason,
+}: {
+  reason: 'stale' | 'offline'
+}): ReactComponentElement<typeof OfflineContainer> => (
   <OfflineContainer>
     <p>
       <img alt="Network offline icon" src={offlineImage} />
-      <strong>No internet connection.</strong> Service updates may no longer be
-      accurate.
+      {reason === 'offline' ? (
+        <>
+          <strong>No internet connection.</strong> Service updates may no longer
+          be accurate.
+        </>
+      ) : (
+        <>
+          <strong>Showing stale data.</strong> This data was cached and may not
+          be accurate.
+        </>
+      )}
     </p>
   </OfflineContainer>
 )
@@ -63,9 +81,11 @@ const Online = (): ReactComponentElement<typeof OnlineContainer> => (
     </LucidLink>
   </OnlineContainer>
 )
-export default function NetworkIndicator(): ReactComponentElement<
-  typeof Online | typeof Offline
-> {
+export default function NetworkIndicator({ stale }: { stale: boolean }) {
   const isOnline = useNetworkStatus()
-  return isOnline ? <Online /> : <Offline />
+  return isOnline && !stale ? (
+    <Online />
+  ) : (
+    <Offline reason={stale ? 'stale' : 'offline'} />
+  )
 }

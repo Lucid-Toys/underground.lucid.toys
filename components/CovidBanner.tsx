@@ -1,10 +1,8 @@
 import styled from '@emotion/styled'
-import { ReactComponentElement } from 'react'
 
 const Container = styled.header`
-  border-bottom: 4px solid;
-  color: var(--danger);
-  padding: 1em;
+  color: var(--warning);
+  padding: 1.5em;
   padding-left: 5vw;
   padding-right: 32px;
   font-weight: 500;
@@ -21,17 +19,15 @@ const Container = styled.header`
   }
 `
 
-export default function(): ReactComponentElement<typeof Container> {
+export default function CovidBanner() {
   return (
     <Container>
-      <h1>Please Do Not Travel</h1>
+      <h2>Wear a face covering</h2>
       <p>
-        Transport for London has advised against any travel that isn't
-        absolutely necessary during the COVID-19 pandemic. Please refer to{' '}
-        <a href="https://tfl.gov.uk/campaign/coronavirus-covid-?intcmp=62419">
-          TfL’s guidance
-        </a>{' '}
-        for further information. Stay home, and stay safe.
+        Transport for London now requires that riders wear a face covering for
+        their entire journey. Please refer to{' '}
+        <a href="https://tfl.gov.uk/campaign/face-coverings">TfL’s guidance</a>{' '}
+        for further information. Wear a mask, protect others, and stay safe.
       </p>
     </Container>
   )

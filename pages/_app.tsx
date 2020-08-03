@@ -4,7 +4,7 @@ import Router from 'next/router'
 import React, { ReactElement } from 'react'
 import * as gtag from '../utils/gtag'
 
-Router.events.on('routeChangeComplete', url => gtag.pageview(url))
+Router.events.on('routeChangeComplete', (url) => gtag.pageview(url))
 
 export default class UndergroundApp extends App {
   render(): ReactElement {

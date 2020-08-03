@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document'
 import { ReactComponentElement } from 'react'
 import { GA_TRACKING_ID } from '../utils/gtag'
 
-const GlobalStyles = (): ReactComponentElement<typeof Global> => (
+const GlobalStyles = () => (
   <Global
     styles={css`
       :root {
@@ -20,8 +20,8 @@ const GlobalStyles = (): ReactComponentElement<typeof Global> => (
         --foreground: var(--light);
         --background: var(--dark);
 
-        --fontStack: 'IBM Plex Sans', -apple-system, system-ui,
-          BlinkMacSystemFont, sans-serif;
+        --fontStack: 'Inter', -apple-system, system-ui, BlinkMacSystemFont,
+          sans-serif;
       }
 
       @media (prefers-color-scheme: dark) {
@@ -74,7 +74,7 @@ class UndergroundDocument extends Document {
           />
           <meta content="#0068b3" name="theme-color" />
           <link
-            href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700&display=swap"
+            href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.css"
             rel="stylesheet"
           />
           <link href="/images/favicon.png" rel="shortcut icon" />

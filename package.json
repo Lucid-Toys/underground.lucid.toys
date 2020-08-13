@@ -20,7 +20,7 @@
     "unfetch": "^4.1.0"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 7000",
     "build": "next build",
     "start": "next start",
     "lint:js": "eslint \"**/*.{js,jsx,ts,tsx}\"",

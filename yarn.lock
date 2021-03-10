@@ -9560,10 +9560,10 @@ supports-color@^7.0.0, supports-color@^7.1.0, supports-color@^7.2.0:
   dependencies:
     has-flag "^4.0.0"
 
-swr@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-0.4.0.tgz#e76da9f981fe6dee0e133289e9b582fc80d9c41d"
-  integrity sha512-70qd1FHYHwIdYXW0jTpm5ktitzvPBCtyKz8ZzynWlY/rMqe4drYPgcl/H9Ipuh+Xv6ZW5viNx13ro8EKIWZcoQ==
+swr@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-0.5.0.tgz#08648a752230a034cab7bb307c0b89af6f0efbba"
+  integrity sha512-zybQScVRZcEfZ6wXJJXvHrbooLs/XepV5Zoaz7o6esheDiQotEd0y56AwNJ2QBiPo2G/AbdhIC2Dm0csYpJrJQ==
   dependencies:
     dequal "2.0.2"
 

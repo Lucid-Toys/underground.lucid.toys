@@ -1,0 +1,16 @@
+name: Merge Dependabot PRs
+
+on:
+  check_suite:
+    types:
+      - completed
+
+jobs:
+  merge-me:
+    name: Merge Dependabot PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge Dependabot PRs
+        uses: ridedott/merge-me-action@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

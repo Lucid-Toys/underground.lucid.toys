@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Merge Dependabot PRs
-        uses: daneden/merge-me-action@master
+        uses: ridedott/merge-me-action@v2.6.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

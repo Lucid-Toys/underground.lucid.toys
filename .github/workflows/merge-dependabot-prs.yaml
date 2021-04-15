@@ -1,18 +1,16 @@
 name: Merge Dependabot PRs
 
-on: status
+on:
+  check_suite:
+    types:
+      - completed
 
 jobs:
   merge-me:
     name: Merge Dependabot PRs
     runs-on: ubuntu-latest
     steps:
-      - name: Debugging
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
-        run: echo "$GITHUB_CONTEXT"
       - name: Merge Dependabot PRs
-        if: ${{ github.event.state == 'success' }}
-        uses: ridedott/merge-me-action@v2.6.2
+        uses: ridedott/merge-me-action@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

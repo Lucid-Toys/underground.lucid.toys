@@ -1,22 +1,18 @@
-name: Automatically merge GitHub Security PRs
+name: Merge Dependabot PRs
 
-on:
-  check_suite:
-    types:
-      - completed
+on: status
 
 jobs:
-  merge-dependabot:
+  merge-me:
+    name: Merge Dependabot PRs
     runs-on: ubuntu-latest
     steps:
-      - uses: ridedott/merge-me-action@v2
+      - name: Debugging
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github.event) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Merge Dependabot PRs
+        if: ${{ github.event.state == 'success' }}
+        uses: ridedott/merge-me-action@v2.6.2
         with:
-          GITHUB_LOGIN: 'dependabot[bot]'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  merge-dependabot-preview:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ridedott/merge-me-action@v2
-        with:
-          GITHUB_LOGIN: 'dependabot-preview[bot]'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

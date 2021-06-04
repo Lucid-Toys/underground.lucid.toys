@@ -40,6 +40,7 @@ const GlobalStyles = () => (
 
       html {
         font: 100%/1.25 var(--fontStack);
+        font-feature-settings: 'ss04';
         color: var(--foreground);
         background-color: var(--background);
       }

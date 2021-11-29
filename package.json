@@ -7,7 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "@cypress/code-coverage": "^3.9.11",
-    "@emotion/core": "^10.1.1",
+    "@emotion/core": "^10.3.0",
     "@emotion/styled": "^10.3.0",
     "global": "^4.4.0",
     "isomorphic-unfetch": "^3.1.0",

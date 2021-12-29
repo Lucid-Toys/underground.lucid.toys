@@ -18,10 +18,10 @@ const AppContainer = styled.main`
   }
 `
 
-const Index = ({ initialData }): ReactElement | string => {
+const Index = ({ fallbackData }): ReactElement | string => {
   const { data } = useSWR('/api/data', fetcher, {
     refreshInterval: 3000,
-    initialData,
+    fallbackData,
   })
 
   const [mounted, setMounted] = useState(false)
@@ -46,7 +46,7 @@ const Index = ({ initialData }): ReactElement | string => {
 
 export async function getStaticProps() {
   const data = await tflFetcher()
-  return { props: { initialData: data }, revalidate: 1 }
+  return { props: { fallbackData: data }, revalidate: 1 }
 }
 
 export default Index

@@ -50,10 +50,19 @@ export default async function tflFetcher() {
      * line. We want to remove any extraneous messages.
      */
     const sanitisedData = data.map((datum) => {
-      const sanitisedLineStatuses = datum.lineStatuses.filter(
-        (lineStatus, index, self) =>
-          index === self.findIndex((t) => t.reason === lineStatus.reason)
-      )
+      const sanitisedLineStatuses = datum.lineStatuses
+        .filter(
+          (lineStatus, index, self) =>
+            index === self.findIndex((t) => t.reason === lineStatus.reason)
+        )
+        /**
+         * Statuses also often end up with the same ID, so we’ll replace them
+         * here.
+         */
+        .map((status, index) => {
+          return { ...status, id: index }
+        })
+
       return {
         ...datum,
         lineStatuses: sanitisedLineStatuses,

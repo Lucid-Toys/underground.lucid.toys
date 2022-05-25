@@ -1,5 +1,5 @@
 const API_URL =
-  'https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail/status'
-const BREAKPOINT = '600px'
+  "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail,elizabeth-line/status";
+const BREAKPOINT = "600px";
 
-export { API_URL, BREAKPOINT }
+export { API_URL, BREAKPOINT };

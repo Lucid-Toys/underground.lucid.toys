@@ -1,5 +1,6 @@
-const API_URL =
-  "https://api.tfl.gov.uk/line/mode/tube,overground,dlr,tflrail,elizabeth-line/status";
-const BREAKPOINT = "600px";
+const { APP_KEY } = process.env
 
-export { API_URL, BREAKPOINT };
+const API_URL = `https://api.tfl.gov.uk/line/mode/tube,overground,dlr,elizabeth-line/status?app_key=${APP_KEY}`
+const BREAKPOINT = '600px'
+
+export { API_URL, BREAKPOINT }

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import React, { ReactElement, useEffect, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import useSWR from 'swr'
 import CovidBanner from '../components/CovidBanner'
 import NetworkIndicator from '../components/NetworkIndicator'
@@ -46,7 +46,7 @@ const Index = ({ fallbackData }): ReactElement | string => {
 
 export async function getStaticProps() {
   const data = await tflFetcher()
-  return { props: { fallbackData: data }, revalidate: 1 }
+  return { props: { fallbackData: data ?? null }, revalidate: 1 }
 }
 
 export default Index

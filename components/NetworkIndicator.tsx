@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import Image from 'next/image'
 import { ReactComponentElement } from 'react'
 import useNetworkStatus from '../hooks/useNetworkStatus'
 import lucidLogo from './images/lucid-icon.svg'
@@ -55,7 +56,12 @@ const Offline = ({
 }): ReactComponentElement<typeof OfflineContainer> => (
   <OfflineContainer>
     <p>
-      <img alt="Network offline icon" src={offlineImage} />
+      <Image
+        alt="Network offline icon"
+        height={16}
+        src={offlineImage}
+        width={17}
+      />
       {reason === 'offline' ? (
         <>
           <strong>No internet connection.</strong> Service updates may no longer
@@ -74,10 +80,16 @@ const Offline = ({
 const Online = (): ReactComponentElement<typeof OnlineContainer> => (
   <OnlineContainer>
     <p>
-      <img alt="Network online icon" src={onlineImage} /> Updating live
+      <Image
+        alt="Network online icon"
+        height={16}
+        src={onlineImage}
+        width={17}
+      />{' '}
+      Updating live
     </p>
     <LucidLink href="https://lucid.toys" title="Lucid Toys">
-      <img alt="Lucid Logo" src={lucidLogo} />
+      <Image alt="Lucid Logo" height={16} src={lucidLogo} width={16} />
     </LucidLink>
   </OnlineContainer>
 )
